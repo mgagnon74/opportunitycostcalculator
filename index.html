@@ -1,93 +1,461 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Opportunity Cost Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opportunity Cost Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07090d;
+      color: #ffffff;
+      line-height: 1.5;
+    }
 
-body{
-font-family: Arial;
-background:#111;
-color:white;
-text-align:center;
-padding:40px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.container{
-max-width:800px;
-margin:auto;
-}
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-input{
-padding:10px;
-margin:10px;
-width:150px;
-}
+    .hero {
+      padding: 60px 0 30px;
+      text-align: center;
+    }
 
-button{
-padding:10px 20px;
-background:#00ff9d;
-border:none;
-font-weight:bold;
-cursor:pointer;
-}
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8bf4c8;
+      background: rgba(139, 244, 200, 0.08);
+      border: 1px solid rgba(139, 244, 200, 0.2);
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
 
-.result{
-font-size:24px;
-margin-top:20px;
-color:#00ff9d;
-}
+    h1 {
+      font-size: 52px;
+      line-height: 1.08;
+      margin: 0 0 16px;
+    }
 
-.card{
-background:#222;
-padding:30px;
-border-radius:10px;
-margin-top:30px;
-}
+    .subheadline {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 20px;
+      color: #c8d2dc;
+    }
 
-</style>
+    .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #1cf0a6;
+      color: #03120d;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #29313b;
+      color: #ffffff;
+    }
+
+    .section {
+      padding: 26px 0 10px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .section-text {
+      color: #b7c0cb;
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+
+    .card {
+      background: #161a20;
+      border: 1px solid #252c35;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    }
+
+    .calculator-card {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .calculator-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .calculator-sub {
+      text-align: center;
+      color: #b7c0cb;
+      margin-bottom: 24px;
+    }
+
+    .calc-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    input {
+      width: 220px;
+      max-width: 100%;
+      padding: 14px 14px;
+      border-radius: 12px;
+      border: 1px solid #313945;
+      background: #0f1318;
+      color: white;
+      font-size: 16px;
+    }
+
+    input::placeholder {
+      color: #98a2ad;
+    }
+
+    .result {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 20px;
+      color: #20f0a8;
+      min-height: 80px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .locked-card {
+      position: relative;
+      background: linear-gradient(180deg, #171b22 0%, #11151a 100%);
+      border: 1px solid #252c35;
+      border-radius: 18px;
+      padding: 20px;
+      min-height: 170px;
+      overflow: hidden;
+    }
+
+    .locked-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .locked-card p {
+      margin: 0;
+      color: #b7c0cb;
+      font-size: 15px;
+    }
+
+    .lock-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      color: #8bf4c8;
+      background: rgba(139, 244, 200, 0.08);
+      border: 1px solid rgba(139, 244, 200, 0.2);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .blur-strip {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 42px;
+      background: linear-gradient(to top, rgba(7,9,13,0.95), rgba(7,9,13,0));
+    }
+
+    .signup {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .signup-left h3 {
+      margin-top: 0;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .signup-left p {
+      color: #c6ced8;
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .benefits {
+      margin: 0;
+      padding-left: 20px;
+      color: #d7dee6;
+    }
+
+    .benefits li {
+      margin-bottom: 10px;
+    }
+
+    .signup-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .signup-box label {
+      font-size: 14px;
+      color: #b7c0cb;
+      margin-bottom: 8px;
+    }
+
+    .signup-box input {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+    .fine-print {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #8d97a3;
+    }
+
+    .footer {
+      padding: 40px 0 70px;
+      color: #8d97a3;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .grid,
+      .signup {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      h1 {
+        font-size: 34px;
+      }
+
+      .subheadline {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <section class="hero">
+      <div class="eyebrow">Viral calculators for life, money, and freedom</div>
+      <h1>See the hidden cost of your habits, your time, and your dreams.</h1>
+      <p class="subheadline">
+        Start with one free calculator below. Then unlock the full calculator vault to find out how much life, money, and bucket-list potential you may be leaving on the table.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#unlock">Unlock the Calculator Vault</a>
+        <a class="btn btn-secondary" href="#free-tool">Try the free calculator</a>
+      </div>
+    </section>
 
-<div class="container">
+    <section class="section" id="free-tool">
+      <h2 class="section-title">Free Calculator</h2>
+      <p class="section-text">
+        Give people one strong result for free. This creates trust and curiosity before asking for an email.
+      </p>
 
-<h1>Opportunity Cost Calculator</h1>
+      <div class="card calculator-card">
+        <div class="calculator-title">How much is your coffee really costing you?</div>
+        <div class="calculator-sub">Enter your average coffee price and how many you buy per week.</div>
 
-<p>How much is your daily coffee really costing you?</p>
+        <div class="calc-row">
+          <input id="price" type="number" step="0.01" placeholder="Coffee price ($)" />
+          <input id="cups" type="number" step="1" placeholder="Cups per week" />
+        </div>
 
-<div class="card">
+        <div class="calc-row">
+          <button class="btn btn-primary" onclick="calcCoffee()">Calculate</button>
+        </div>
 
-<input id="price" placeholder="Coffee price ($)">
-<input id="cups" placeholder="Cups per week">
-<br>
-<button onclick="calc()">Calculate</button>
+        <div class="result" id="result"></div>
+      </div>
+    </section>
 
-<div class="result" id="result"></div>
+    <section class="section">
+      <h2 class="section-title">Locked Calculator Vault</h2>
+      <p class="section-text">
+        Show what people get after signup. These cards make the site feel bigger and give a reason to join.
+      </p>
 
-</div>
+      <div class="grid">
+        <div class="locked-card">
+          <div class="lock-badge">🔒 Unlock with email</div>
+          <h3>How many days of life do I have left?</h3>
+          <p>See your estimated days left, then discover how many of them are actually free after sleep and work.</p>
+          <div class="blur-strip"></div>
+        </div>
 
-</div>
+        <div class="locked-card">
+          <div class="lock-badge">🔒 Unlock with email</div>
+          <h3>Screen Time Life Lost</h3>
+          <p>Find out how many months or years may be disappearing into your phone.</p>
+          <div class="blur-strip"></div>
+        </div>
 
-<script>
+        <div class="locked-card">
+          <div class="lock-badge">🔒 Unlock with email</div>
+          <h3>Can I Afford My Bucket List?</h3>
+          <p>Turn your dream trips and experiences into a realistic yearly life plan.</p>
+          <div class="blur-strip"></div>
+        </div>
 
-function calc(){
+        <div class="locked-card">
+          <div class="lock-badge">🔒 Unlock with email</div>
+          <h3>Side Hustle → Travel</h3>
+          <p>See how a second income stream could fund trips, adventures, and future freedom.</p>
+          <div class="blur-strip"></div>
+        </div>
 
-let price=document.getElementById("price").value;
-let cups=document.getElementById("cups").value;
+        <div class="locked-card">
+          <div class="lock-badge">🔒 Unlock with email</div>
+          <h3>Can I Afford This Pet?</h3>
+          <p>Estimate the real lifetime cost of a pet before you commit.</p>
+          <div class="blur-strip"></div>
+        </div>
 
-let yearly=price*cups*52;
-let thirty=yearly*30;
+        <div class="locked-card">
+          <div class="lock-badge">🔒 Unlock with email</div>
+          <h3>Commute Life Drain</h3>
+          <p>Learn how much of your life may be disappearing into driving, waiting, and traffic.</p>
+          <div class="blur-strip"></div>
+        </div>
+      </div>
+    </section>
 
-document.getElementById("result").innerHTML=
+    <section class="section" id="unlock">
+      <div class="card signup">
+        <div class="signup-left">
+          <h3>Unlock the full calculator vault</h3>
+          <p>
+            Enter your email to unlock the other calculators and get access to your future Bucket List Income Planner.
+          </p>
+          <ul class="benefits">
+            <li>Access to all current calculators</li>
+            <li>Future bucket-list and side-hustle calculators</li>
+            <li>A better way to connect time, money, and freedom</li>
+            <li>New viral calculators as they are released</li>
+          </ul>
+        </div>
 
-"You spend <b>$"+yearly.toFixed(0)+"</b> per year on coffee.<br><br>" +
+        <div class="signup-box">
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="Enter your email" />
+          <button class="btn btn-primary" onclick="unlockVault()">Unlock now</button>
+          <div class="fine-print">
+            For now, this is a simple starter gate. Later you can connect Mailchimp, Buttondown, or ConvertKit.
+          </div>
+        </div>
+      </div>
+    </section>
 
-"Over 30 years that becomes <b>$"+thirty.toFixed(0)+"</b>";
+    <div class="footer">
+      Opportunity Cost Calculator • Start simple, grow calculator by calculator
+    </div>
+  </div>
 
-}
+  <script>
+    function calcCoffee() {
+      const price = parseFloat(document.getElementById("price").value);
+      const cups = parseFloat(document.getElementById("cups").value);
+      const result = document.getElementById("result");
 
-</script>
+      if (isNaN(price) || isNaN(cups) || price < 0 || cups < 0) {
+        result.innerHTML = "Please enter valid numbers in both fields.";
+        return;
+      }
 
+      const yearly = price * cups * 52;
+      const thirty = yearly * 30;
+
+      result.innerHTML =
+        "You spend <b>$" + yearly.toFixed(0) + "</b> per year on coffee.<br><br>" +
+        "Over 30 years that becomes <b>$" + thirty.toFixed(0) + "</b>";
+    }
+
+    function unlockVault() {
+      const email = document.getElementById("email").value.trim();
+
+      if (!email || !email.includes("@") || !email.includes(".")) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // Temporary simple gate.
+      // Later replace this with Mailchimp/Buttondown form submission.
+      window.location.href = "vault.html";
+    }
+  </script>
 </body>
 </html>
