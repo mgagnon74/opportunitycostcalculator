@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Screen Time Life Lost Calculator</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07090d;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .top-link {
+      display: inline-block;
+      margin: 24px 0 10px;
+      color: #8bf4c8;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 30px 0 20px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8bf4c8;
+      background: rgba(139, 244, 200, 0.08);
+      border: 1px solid rgba(139, 244, 200, 0.18);
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 52px;
+      line-height: 1.08;
+      margin: 0 0 16px;
+    }
+
+    .subheadline {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 20px;
+      color: #c8d2dc;
+    }
+
+    .card {
+      background: #151a20;
+      border: 1px solid #252c35;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+      margin-top: 28px;
+    }
+
+    .calc-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    input {
+      width: 240px;
+      max-width: 100%;
+      padding: 15px 16px;
+      border-radius: 14px;
+      border: 1px solid #313945;
+      background: #0f1318;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #1cf0a6;
+      box-shadow: 0 0 0 3px rgba(28,240,166,0.1);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: #1cf0a6;
+      color: #03120d;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #2a3440;
+      color: #ffffff;
+    }
+
+    .result {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 22px;
+      color: #20f0a8;
+      min-height: 110px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .share-wrap {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .result-card {
+      max-width: 760px;
+      margin: 24px auto 0;
+      background: linear-gradient(135deg,#111722,#0b0f14);
+      border: 1px solid #2b3642;
+      border-radius: 18px;
+      padding: 24px;
+      text-align: left;
+      color: white;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+      display: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      color: #8bf4c8;
+      background: rgba(139,244,200,0.08);
+      border: 1px solid rgba(139,244,200,0.2);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .disclaimer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #a0aab6;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    .footer {
+      padding: 40px 0 60px;
+      color: #8d97a3;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 560px) {
+      h1 { font-size: 36px; }
+      .subheadline { font-size: 18px; }
+      input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="top-link" href="vault.html">← Back to vault</a>
+
+    <section class="hero">
+      <div class="eyebrow">Screen Time • Time Awareness</div>
+      <h1>How much of your life is going into your phone?</h1>
+      <p class="subheadline">
+        Estimate how many hours, days, months, or years may be disappearing into screen time over your lifetime.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="calc-row">
+        <input id="hoursPerDay" type="number" min="0" max="24" step="0.1" placeholder="Screen time hours per day" />
+        <input id="age" type="number" min="1" max="120" placeholder="Your age" />
+      </div>
+
+      <div class="calc-row">
+        <input id="lifeExpectancy" type="number" min="1" max="120" placeholder="Expected lifespan (e.g. 82)" />
+      </div>
+
+      <div class="calc-row">
+        <button class="btn btn-primary" onclick="calcScreenTime()">Calculate</button>
+      </div>
+
+      <div id="result" class="result"></div>
+
+      <div id="screen-card" class="result-card">
+        <div class="badge">Screen Time Reality Check</div>
+        <div id="screen-card-text" style="font-size:32px; line-height:1.15; font-weight:800; margin-bottom:14px;"></div>
+        <div id="screen-card-detail" style="font-size:18px; color:#c8d2dc;"></div>
+        <div style="margin-top:18px; font-size:14px; color:#8f9aa6;">
+          Opportunity Cost Calculator
+        </div>
+      </div>
+
+      <div id="share-wrap" class="share-wrap" style="display:none;">
+        <button class="btn btn-secondary" onclick="copyScreenText()">Copy Text</button>
+        <button class="btn btn-secondary" onclick="printScreenCard()">Print / Save</button>
+        <button class="btn btn-primary" onclick="emailScreenResult()">Email My Result</button>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This calculator provides rough estimates for reflection and entertainment purposes only. It is not medical, psychological, or behavioral advice.
+      </div>
+    </section>
+
+    <div class="footer">
+      Opportunity Cost Calculator • awareness creates choice
+    </div>
+  </div>
+
+  <script>
+    let screenState = null;
+
+    function calcScreenTime() {
+      const hoursPerDay = parseFloat(document.getElementById("hoursPerDay").value);
+      const age = parseFloat(document.getElementById("age").value);
+      const lifeExpectancy = parseFloat(document.getElementById("lifeExpectancy").value);
+      const result = document.getElementById("result");
+
+      if (
+        isNaN(hoursPerDay) || isNaN(age) || isNaN(lifeExpectancy) ||
+        hoursPerDay < 0 || hoursPerDay > 24 ||
+        age < 0 || lifeExpectancy <= age
+      ) {
+        result.innerHTML = "Please enter valid numbers. Lifespan must be greater than age, and screen time must be between 0 and 24 hours.";
+        document.getElementById("screen-card").style.display = "none";
+        document.getElementById("share-wrap").style.display = "none";
+        return;
+      }
+
+      const yearsRemaining = lifeExpectancy - age;
+      const totalHours = Math.round(hoursPerDay * 365.25 * yearsRemaining);
+      const totalDays = Math.round(totalHours / 24);
+      const totalMonths = Math.round(totalDays / 30.44);
+      const totalYears = (totalDays / 365.25).toFixed(1);
+
+      screenState = {
+        yearsRemaining: Math.round(yearsRemaining * 10) / 10,
+        totalHours,
+        totalDays,
+        totalMonths,
+        totalYears
+      };
+
+      result.innerHTML = `
+        About <b>${screenState.totalHours.toLocaleString()}</b> hours of future screen time<br>
+        About <b>${screenState.totalDays.toLocaleString()}</b> days<br>
+        About <b>${screenState.totalYears}</b> years of life
+      `;
+
+      document.getElementById("screen-card-text").innerHTML =
+        `Your current screen time could add up to<br>${screenState.totalYears} years of life.`;
+
+      document.getElementById("screen-card-detail").innerHTML =
+        `That is about ${screenState.totalDays.toLocaleString()} days or ${screenState.totalHours.toLocaleString()} hours over the rest of your expected lifetime.`;
+
+      document.getElementById("screen-card").style.display = "block";
+      document.getElementById("share-wrap").style.display = "flex";
+    }
+
+    function copyScreenText() {
+      if (!screenState) return;
+      const text = `My current screen time could add up to about ${screenState.totalYears} years of life, or ${screenState.totalDays.toLocaleString()} days over the rest of my expected lifetime.`;
+      navigator.clipboard.writeText(text).then(() => alert("Screen time result copied."));
+    }
+
+    function emailScreenResult() {
+      if (!screenState) return;
+      const subject = encodeURIComponent("My Screen Time Life Lost Result");
+      const body = encodeURIComponent(
+        `My current screen time could add up to about ${screenState.totalYears} years of life.\n` +
+        `That is about ${screenState.totalDays.toLocaleString()} days or ${screenState.totalHours.toLocaleString()} hours.\n\n` +
+        `Generated with Opportunity Cost Calculator.\n\n` +
+        `Disclaimer: This is a rough estimate for entertainment and reflection only.`
+      );
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+
+    function printScreenCard() {
+      const card = document.getElementById("screen-card");
+      if (!screenState || !card) return;
+
+      const text = card.innerText;
+      const win = window.open("", "_blank");
+      win.document.write(`
+        <html>
+        <head><title>Screen Time Card</title></head>
+        <body style="margin:0; background:#07090d; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:Arial,sans-serif;">
+          <div style="width:800px; background:linear-gradient(135deg,#111722,#0b0f14); border:1px solid #2b3642; border-radius:18px; padding:32px; color:white; box-sizing:border-box;">
+            <pre style="white-space:pre-wrap; font-family:Arial,sans-serif; font-size:22px; line-height:1.5; margin:0;">${text}</pre>
+          </div>
+        </body>
+        </html>
+      `);
+      win.document.close();
+      win.print();
+    }
+  </script>
+</body>
+</html>
