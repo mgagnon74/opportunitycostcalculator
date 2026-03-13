@@ -1,0 +1,35 @@
+<h2>Your Bucket List Reality Check</h2>
+
+<label>Number of things on your bucket list</label>
+<input id="bucketItems" type="number">
+
+<label>How many you complete per year</label>
+<input id="perYear" type="number">
+
+<button onclick="calculateBucket()">Calculate</button>
+
+<div id="bucketResult"></div>
+<button onclick="shareBucket()">Download Share Card</button>
+
+<script>
+
+let yearsNeeded = 0;
+
+function calculateBucket(){
+
+let items = parseFloat(document.getElementById("bucketItems").value);
+let perYear = parseFloat(document.getElementById("perYear").value);
+
+yearsNeeded = items / perYear;
+
+document.getElementById("bucketResult").innerHTML =
+"At this rate it will take <b>" + yearsNeeded.toFixed(1) +
+" years</b> to finish your bucket list.<br><br>Better start tomorrow.";
+
+}
+
+function shareBucket(){
+generateShareCard("My bucket list will take", yearsNeeded.toFixed(1)+" years");
+}
+
+</script>
