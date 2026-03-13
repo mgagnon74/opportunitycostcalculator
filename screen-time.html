@@ -336,3 +336,31 @@
   <a href="terms.html">Terms of Service</a> •
   <a href="disclaimer.html">Disclaimer</a>
 </div>
+<script>
+function generateShareCard(title, result) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 900;
+  canvas.height = 450;
+  const ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "#0b0f14";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  ctx.fillStyle = "#20e3a2";
+  ctx.font = "bold 40px Arial";
+  ctx.fillText(title, 40, 100);
+
+  ctx.fillStyle = "white";
+  ctx.font = "bold 70px Arial";
+  ctx.fillText(result, 40, 220);
+
+  ctx.fillStyle = "#aaa";
+  ctx.font = "26px Arial";
+  ctx.fillText("Calculated at opportunity-cost-calculator.com", 40, 360);
+
+  const link = document.createElement("a");
+  link.download = "life-calculation.png";
+  link.href = canvas.toDataURL();
+  link.click();
+}
+</script>
