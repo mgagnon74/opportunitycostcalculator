@@ -1,0 +1,47 @@
+<h2>Your Real Life Remaining</h2>
+
+<label>Age</label>
+<input id="ageNow" type="number">
+
+<label>Life expectancy</label>
+<input id="lifeExp" type="number" value="80">
+
+<label>Sleep hours</label>
+<input id="sleep" type="number" value="8">
+
+<label>Work hours</label>
+<input id="work" type="number" value="8">
+
+<button onclick="calculateLife()">Calculate</button>
+
+<div id="lifeResult"></div>
+<button onclick="shareLife()">Download Share Card</button>
+
+<script>
+
+let freeYears = 0;
+
+function calculateLife(){
+
+let age = parseFloat(document.getElementById("ageNow").value);
+let life = parseFloat(document.getElementById("lifeExp").value);
+let sleep = parseFloat(document.getElementById("sleep").value);
+let work = parseFloat(document.getElementById("work").value);
+
+let remainingDays = (life - age) * 365;
+
+let freeHours = 24 - sleep - work;
+
+freeYears = (freeHours * remainingDays) / 24 / 365;
+
+document.getElementById("lifeResult").innerHTML =
+"You have about <b>" + freeYears.toFixed(1) +
+" years</b> of actual free life left.<br><br>No pressure.";
+
+}
+
+function shareLife(){
+generateShareCard("My real free life remaining", freeYears.toFixed(1)+" years");
+}
+
+</script>
