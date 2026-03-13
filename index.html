@@ -6,7 +6,6 @@
   <title>Opportunity Cost Calculator</title>
   <style>
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -126,6 +125,7 @@
       border: none;
       cursor: pointer;
       transition: 0.2s ease;
+      font-size: 15px;
     }
 
     .btn-primary {
@@ -139,6 +139,10 @@
       background: transparent;
       border: 1px solid #2a3440;
       color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.04);
     }
 
     .trust-row {
@@ -273,7 +277,7 @@
       font-size: 15px;
     }
 
-    .lock-badge {
+    .label-badge {
       display: inline-block;
       font-size: 12px;
       font-weight: bold;
@@ -409,7 +413,7 @@
         <a href="#free-tool">Free Tool</a>
         <a href="#vault">Vault</a>
         <a href="#crazy">Crazy Calculators</a>
-        <a href="#money">How It Makes Money</a>
+        <a href="#money">How It Works</a>
       </div>
       <a class="nav-cta" href="#unlock">Unlock Vault</a>
     </div>
@@ -420,7 +424,7 @@
       <div class="eyebrow">Viral calculators for time, money, and bucket-list freedom</div>
       <h1>How much life are your habits costing you — and what could that become instead?</h1>
       <p class="subheadline">
-        Start with one free calculator. Then unlock the vault to discover how your time, screen habits, spending, side hustles, and bucket-list dreams all connect.
+        Start with one free calculator. Then unlock the vault to explore time, money, travel, side hustles, and life decisions in a way that actually feels personal.
       </p>
 
       <div class="hero-buttons">
@@ -439,7 +443,7 @@
     <section class="section" id="free-tool">
       <h2 class="section-title">Free Calculator</h2>
       <p class="section-text">
-        Start with a quick calculator to see the hidden cost of one small habit.
+        Start with a quick coffee calculator and get an instant result you can copy, email, or save.
       </p>
 
       <div class="card calculator-card">
@@ -456,54 +460,54 @@
         </div>
 
         <div class="result" id="result"></div>
-        <div class="micro-note">Simple today. More dramatic calculators unlock below.</div>
+        <div class="micro-note">Your first shareable result card appears here after you calculate.</div>
       </div>
     </section>
 
     <section class="section" id="vault">
       <h2 class="section-title">Locked Calculator Vault</h2>
       <p class="section-text">
-        Unlock calculators that reveal how your time, money, and choices shape your future.
+        Unlock calculators that help you look at your life, time, spending, and future from a different angle.
       </p>
 
       <div class="grid-3">
         <div class="locked-card">
-          <div class="lock-badge">🔒 Unlock with email</div>
+          <div class="label-badge">Unlock with email</div>
           <h3>How many days of life do I have left?</h3>
           <p>Estimate your days left, then see how many may actually be free after sleep and work.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔒 Unlock with email</div>
+          <div class="label-badge">Unlock with email</div>
           <h3>Screen Time Life Lost</h3>
           <p>Find out how many months or years may be disappearing into your phone.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔒 Unlock with email</div>
+          <div class="label-badge">Unlock with email</div>
           <h3>Can I Afford My Bucket List?</h3>
           <p>Turn dream trips and experiences into a realistic yearly life plan.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔒 Unlock with email</div>
+          <div class="label-badge">Unlock with email</div>
           <h3>Side Hustle → Travel</h3>
           <p>See how a second income stream could help fund trips, adventures, and freedom.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔒 Unlock with email</div>
+          <div class="label-badge">Unlock with email</div>
           <h3>Can I Afford This Pet?</h3>
           <p>Estimate the real lifetime cost of a pet before you say yes.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔒 Unlock with email</div>
+          <div class="label-badge">Unlock with email</div>
           <h3>Commute Life Drain</h3>
           <p>Learn how much of your life may be disappearing into traffic and daily travel.</p>
           <div class="blur-strip"></div>
@@ -511,69 +515,71 @@
       </div>
     </section>
 
-    <p class="section-text">
-  Wild, revealing calculators that turn your habits, time, and choices into numbers you can actually feel.
-</p>
+    <section class="section" id="crazy">
+      <h2 class="section-title">Ridiculous But Real Calculators</h2>
+      <p class="section-text">
+        These are the kinds of calculators people screenshot, send to friends, and argue about.
+      </p>
 
       <div class="grid-3">
         <div class="locked-card">
-          <div cla<p class="section-text">
-ss="lock-badge">🔥</div>
+          <div class="label-badge">Most shared</div>
           <h3>How Many Hours Until I Die?</h3>
+          <p>An intense but highly shareable version of the life-left concept.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Streaming reality</div>
           <h3>Netflix Life Drain</h3>
           <p>See how many days, months, or years of life may have gone into binge watching.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Money leak</div>
           <h3>Phone Upgrade Madness</h3>
           <p>How much you have spent replacing phones — and what that money could have become.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Knowledge gap</div>
           <h3>How Many Books Could I Have Read?</h3>
-          <p>Turn screen time into lost books, lost knowledge, and lost personal growth.</p>
+          <p>Turn screen time into lost books, lost learning, and lost personal growth.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Career check</div>
           <h3>Should I Quit My Job?</h3>
           <p>Blend salary, commute, stress, and time to reveal the real cost of staying.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Life audit</div>
           <h3>How Much of My Life Will I Spend Working?</h3>
           <p>A brutal but compelling calculator for modern life.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Freedom check</div>
           <h3>Can I Afford to Be Spontaneous?</h3>
           <p>Estimate whether your current finances can support last-minute fun and travel.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Funny but useful</div>
           <h3>Cost Per Cuddle</h3>
-          <p>A funny but useful pet calculator that breaks lifetime pet cost into emotional terms.</p>
+          <p>A playful pet calculator that breaks lifetime pet cost into emotional terms.</p>
           <div class="blur-strip"></div>
         </div>
 
         <div class="locked-card">
-          <div class="lock-badge">🔥</div>
+          <div class="label-badge">Bucket-list lens</div>
           <h3>How Much Adventure Is Left?</h3>
           <p>Estimate how many major experiences may still fit into the rest of your life.</p>
           <div class="blur-strip"></div>
@@ -586,12 +592,12 @@ ss="lock-badge">🔥</div>
         <div class="signup-left">
           <h3>Unlock the full calculator vault</h3>
           <p>
-            Enter your email to unlock the rest of the calculators and get future access to your Bucket List Income Planner.
+            Join the email list to get access to deeper calculators and future bucket-list, side-hustle, and life-planning tools.
           </p>
           <ul class="benefits">
             <li>Access to all current calculators</li>
+            <li>New releases sent straight to your inbox</li>
             <li>Future side hustle and bucket-list tools</li>
-            <li>Viral “am I crazy?” calculators as they drop</li>
             <li>A growing system that connects time, money, and freedom</li>
           </ul>
         </div>
@@ -601,7 +607,7 @@ ss="lock-badge">🔥</div>
           <input id="email" type="email" placeholder="Enter your email" />
           <button class="btn btn-primary" onclick="unlockVault()">Unlock now</button>
           <div class="fine-print">
-            This is the simple starter version. Next, connect Mailchimp, Buttondown, or ConvertKit to collect emails for real.
+            Next step: connect this form to your real email list provider so addresses are saved automatically.
           </div>
         </div>
       </div>
@@ -610,28 +616,28 @@ ss="lock-badge">🔥</div>
     <section class="section" id="money">
       <h2 class="section-title">How this can make money</h2>
       <p class="section-text">
-        The goal is not to monetize too early. First get attention and signups. Then layer in revenue in simple ways.
+        Start with traffic and signups. Add revenue only after people are using and sharing the tools.
       </p>
 
       <div class="money-cards">
         <div class="money-card">
           <h4>Ads</h4>
-          <p>Once traffic grows, display ads can turn page views into basic passive income.</p>
+          <p>As traffic grows, display ads can turn page views into basic passive income.</p>
         </div>
 
         <div class="money-card">
           <h4>Email list</h4>
-          <p>Your email list becomes the core asset for future tools, products, and affiliate offers.</p>
+          <p>Your email list becomes the main asset for future tools, products, and offers.</p>
         </div>
 
         <div class="money-card">
           <h4>Affiliate links</h4>
-          <p>Travel, budgeting, insurance, booking, and planning tools can all fit naturally later.</p>
+          <p>Travel, budgeting, booking, insurance, and planning links can fit naturally later.</p>
         </div>
 
         <div class="money-card">
           <h4>Premium planners</h4>
-          <p>You can eventually sell bucket-list planners, side hustle templates, or adventure roadmaps.</p>
+          <p>You can later sell bucket-list planners, side hustle templates, or adventure roadmaps.</p>
         </div>
       </div>
     </section>
@@ -656,10 +662,108 @@ ss="lock-badge">🔥</div>
       const thirty = yearly * 30;
       const invested = yearly * 30 * 1.8;
 
-      result.innerHTML =
-        "You spend <b>$" + yearly.toFixed(0) + "</b> per year on coffee.<br>" +
-        "Over 30 years that becomes <b>$" + thirty.toFixed(0) + "</b>.<br>" +
-        "With basic growth assumptions, that could feel more like <b>$" + invested.toFixed(0) + "</b> in future value.";
+      result.innerHTML = `
+        <div style="margin-bottom:18px;">
+          You spend <b>$${yearly.toFixed(0)}</b> per year on coffee.<br>
+          Over 30 years that becomes <b>$${thirty.toFixed(0)}</b>.<br>
+          A simple future-value view puts that closer to <b>$${invested.toFixed(0)}</b>.
+        </div>
+
+        <div id="coffee-card" style="
+          max-width:700px;
+          margin:20px auto 0;
+          background:linear-gradient(135deg,#111722,#0b0f14);
+          border:1px solid #2b3642;
+          border-radius:18px;
+          padding:24px;
+          text-align:left;
+          color:white;
+          box-shadow:0 12px 30px rgba(0,0,0,0.28);
+        ">
+          <div style="
+            display:inline-block;
+            font-size:12px;
+            font-weight:bold;
+            color:#8bf4c8;
+            background:rgba(139,244,200,0.08);
+            border:1px solid rgba(139,244,200,0.2);
+            padding:6px 10px;
+            border-radius:999px;
+            margin-bottom:14px;
+          ">Coffee Reality Check</div>
+
+          <div style="font-size:32px; line-height:1.15; font-weight:800; margin-bottom:14px;">
+            My coffee habit costs me<br>$${thirty.toFixed(0)} over 30 years.
+          </div>
+
+          <div style="font-size:18px; color:#c8d2dc; margin-bottom:10px;">
+            Yearly spend: <b style="color:#1cf0a6;">$${yearly.toFixed(0)}</b>
+          </div>
+
+          <div style="font-size:18px; color:#c8d2dc;">
+            Future-value angle: <b style="color:#1cf0a6;">$${invested.toFixed(0)}</b>
+          </div>
+
+          <div style="margin-top:18px; font-size:14px; color:#8f9aa6;">
+            OpportunityCostCalculator
+          </div>
+        </div>
+
+        <div style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <button class="btn btn-secondary" onclick="copyCoffeeCard(${yearly.toFixed(0)}, ${thirty.toFixed(0)}, ${invested.toFixed(0)})">Copy Text</button>
+          <button class="btn btn-secondary" onclick="downloadCoffeeCard()">Print / Save</button>
+          <button class="btn btn-primary" onclick="emailCoffeeCard(${yearly.toFixed(0)}, ${thirty.toFixed(0)}, ${invested.toFixed(0)})">Email My Result</button>
+        </div>
+      `;
+    }
+
+    function copyCoffeeCard(yearly, thirty, invested) {
+      const text = `My coffee habit costs me $${thirty} over 30 years. I spend $${yearly} per year on coffee, and the future-value angle is about $${invested}.`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Coffee result copied.");
+      });
+    }
+
+    function emailCoffeeCard(yearly, thirty, invested) {
+      const subject = encodeURIComponent("My Coffee Opportunity Cost Result");
+      const body = encodeURIComponent(
+        `My coffee habit costs me $${thirty} over 30 years.\n\n` +
+        `Yearly spend: $${yearly}\n` +
+        `Future-value angle: $${invested}\n\n` +
+        `Generated with OpportunityCostCalculator.`
+      );
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+
+    function downloadCoffeeCard() {
+      const card = document.getElementById("coffee-card");
+      if (!card) {
+        alert("Calculate first to generate your card.");
+        return;
+      }
+
+      const text = card.innerText;
+      const win = window.open("", "_blank");
+      win.document.write(`
+        <html>
+        <head><title>Coffee Card</title></head>
+        <body style="margin:0; background:#07090d; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:Arial,sans-serif;">
+          <div style="
+            width:800px;
+            background:linear-gradient(135deg,#111722,#0b0f14);
+            border:1px solid #2b3642;
+            border-radius:18px;
+            padding:32px;
+            color:white;
+            box-sizing:border-box;
+          ">
+            <pre style="white-space:pre-wrap; font-family:Arial,sans-serif; font-size:22px; line-height:1.5; margin:0;">${text}</pre>
+          </div>
+        </body>
+        </html>
+      `);
+      win.document.close();
+      win.print();
     }
 
     function unlockVault() {
