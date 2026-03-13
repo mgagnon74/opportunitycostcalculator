@@ -1,0 +1,37 @@
+<h2>Your Coffee Could Make You Rich</h2>
+
+<label>Coffee cost per day ($)</label>
+<input id="coffeeCost" type="number">
+
+<label>Years invested instead</label>
+<input id="years" type="number" value="30">
+
+<button onclick="calculateCoffee()">Calculate</button>
+
+<div id="coffeeResult"></div>
+<button onclick="shareCoffee()">Download Share Card</button>
+
+<script>
+
+let wealth = 0;
+
+function calculateCoffee(){
+
+let daily = parseFloat(document.getElementById("coffeeCost").value);
+let years = parseFloat(document.getElementById("years").value);
+
+let yearly = daily * 365;
+
+wealth = yearly * years * 1.07;
+
+document.getElementById("coffeeResult").innerHTML =
+"Your coffee habit could become <b>$" + Math.round(wealth) +
+"</b> if invested instead.<br><br>But hey… caffeine is also an investment.";
+
+}
+
+function shareCoffee(){
+generateShareCard("My coffee habit costs", "$"+Math.round(wealth));
+}
+
+</script>
