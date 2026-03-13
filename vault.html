@@ -22,7 +22,7 @@
 
     .container {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 24px;
     }
@@ -33,14 +33,14 @@
     }
 
     h1 {
-      font-size: 48px;
-      margin: 0 0 14px;
+      font-size: 56px;
+      margin: 0 0 16px;
     }
 
     .sub {
       color: #c7d0d9;
-      font-size: 20px;
-      max-width: 760px;
+      font-size: 21px;
+      max-width: 850px;
       margin: 0 auto;
     }
 
@@ -52,13 +52,14 @@
     }
 
     .section-title {
-      font-size: 30px;
-      margin: 28px 0 10px;
+      font-size: 34px;
+      margin: 34px 0 10px;
     }
 
     .section-text {
       color: #b7c0cb;
       margin-bottom: 20px;
+      font-size: 18px;
     }
 
     .grid {
@@ -71,14 +72,27 @@
       background: #151a20;
       border: 1px solid #252c35;
       border-radius: 18px;
-      padding: 22px;
-      min-height: 200px;
+      padding: 24px;
+      min-height: 210px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      color: #8bf4c8;
+      background: rgba(139,244,200,0.08);
+      border: 1px solid rgba(139,244,200,0.2);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
     }
 
     .card h3 {
       margin-top: 0;
       margin-bottom: 10px;
-      font-size: 24px;
+      font-size: 28px;
     }
 
     .card p {
@@ -96,6 +110,10 @@
       color: #03120d;
     }
 
+    .coming-soon {
+      opacity: 0.78;
+    }
+
     .footer {
       padding: 40px 0 60px;
       color: #8d97a3;
@@ -105,7 +123,8 @@
 
     @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
-      h1 { font-size: 38px; }
+      h1 { font-size: 42px; }
+      .sub { font-size: 18px; }
     }
   </style>
 </head>
@@ -114,35 +133,39 @@
     <section class="hero">
       <h1>Calculator Vault</h1>
       <p class="sub">
-        Start with the first four calculators. Once these are working, we can add email capture, terms, disclaimer pages, and the next tools.
+        Start with the first working calculators. Each one is built to create a strong result, a funny reality check, and a shareable card.
       </p>
       <a class="top-link" href="index.html">← Back to homepage</a>
     </section>
 
     <section>
-      <h2 class="section-title">Available Calculators</h2>
-      <p class="section-text">Build and test these first.</p>
+      <h2 class="section-title">Live Calculators</h2>
+      <p class="section-text">These are the tools that should work right now.</p>
 
       <div class="grid">
         <div class="card">
+          <div class="badge">Live now</div>
           <h3>Coffee Opportunity Cost</h3>
-          <p>See how much a small recurring habit can cost over time.</p>
+          <p>See how much a small recurring habit can cost over time and what it could become instead.</p>
           <a class="btn" href="index.html#free-tool">Open</a>
         </div>
 
         <div class="card">
+          <div class="badge">Live now</div>
           <h3>Life Remaining</h3>
           <p>Estimate your remaining days, years, and free time after sleep and work.</p>
           <a class="btn" href="life-left.html">Open</a>
         </div>
 
         <div class="card">
+          <div class="badge">Live now</div>
           <h3>Screen Time Life Lost</h3>
           <p>Calculate how much of your life may be disappearing into your phone.</p>
           <a class="btn" href="screen-time.html">Open</a>
         </div>
 
         <div class="card">
+          <div class="badge">Live now</div>
           <h3>Bucket List Planner</h3>
           <p>Estimate how many adventures or major experiences may still fit into your life.</p>
           <a class="btn" href="bucket-list.html">Open</a>
@@ -150,14 +173,54 @@
       </div>
     </section>
 
+    <section>
+      <h2 class="section-title">Next Viral Calculators</h2>
+      <p class="section-text">These are the next pages to build if you want stronger shares and more traffic.</p>
+
+      <div class="grid">
+        <div class="card coming-soon">
+          <div class="badge">Build next</div>
+          <h3>Phone Life Theft</h3>
+          <p>Find out how many years of your life could go into your phone. Funny, painful, and very shareable.</p>
+        </div>
+
+        <div class="card coming-soon">
+          <div class="badge">Build next</div>
+          <h3>Coffee → Millionaire</h3>
+          <p>Turn your daily coffee into a future-value reality check with a smug little twist.</p>
+        </div>
+
+        <div class="card coming-soon">
+          <div class="badge">Build next</div>
+          <h3>Commute Life Drain</h3>
+          <p>See how much time your commute quietly steals from your life.</p>
+        </div>
+
+        <div class="card coming-soon">
+          <div class="badge">Build next</div>
+          <h3>Free Days Remaining</h3>
+          <p>How many truly free days do you actually have left after work and sleep?</p>
+        </div>
+
+        <div class="card coming-soon">
+          <div class="badge">Build next</div>
+          <h3>Bucket List Reality Check</h3>
+          <p>Will you actually finish your bucket list at your current pace, or is it just decorative optimism?</p>
+        </div>
+
+        <div class="card coming-soon">
+          <div class="badge">Build next</div>
+          <h3>Commute + Coffee Combo</h3>
+          <p>A chaos calculator for the cost of caffeine, commuting, and pretending everything is fine.</p>
+        </div>
+      </div>
+    </section>
+
     <div class="footer">
-      Opportunity Cost Calculator
+      Opportunity Cost Calculator<br><br>
+      <a href="terms.html">Terms of Service</a> •
+      <a href="disclaimer.html">Disclaimer</a>
     </div>
   </div>
 </body>
 </html>
-<div class="footer">
-  Opportunity Cost Calculator<br><br>
-  <a href="terms.html">Terms of Service</a> •
-  <a href="disclaimer.html">Disclaimer</a>
-</div>
