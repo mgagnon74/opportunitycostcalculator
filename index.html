@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Opportunity Cost Calculator</title>
+  <meta name="description" content="See the hidden cost of your habits, time, and routines with shareable calculators for coffee, screen time, life remaining, and bucket list planning." />
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -23,7 +24,7 @@
 
     .container {
       width: 100%;
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -31,24 +32,25 @@
     .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(7, 9, 13, 0.88);
+      z-index: 100;
+      background: rgba(7, 9, 13, 0.9);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .nav-inner {
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      min-height: 74px;
+      gap: 20px;
     }
 
     .brand {
       font-weight: 800;
       font-size: 22px;
       letter-spacing: 0.2px;
+      white-space: nowrap;
     }
 
     .brand span {
@@ -57,26 +59,31 @@
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 24px;
       flex-wrap: wrap;
-      color: #c3ced8;
+      color: #c5cfda;
       font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
     }
 
     .nav-cta {
       display: inline-block;
-      padding: 12px 16px;
-      border-radius: 12px;
+      padding: 12px 18px;
+      border-radius: 14px;
       background: #1cf0a6;
-      color: #04130d;
+      color: #03120d;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .hero {
-      padding: 78px 0 40px;
       text-align: center;
+      padding: 90px 0 48px;
       background:
-        radial-gradient(circle at top, rgba(28,240,166,0.12), transparent 38%),
+        radial-gradient(circle at top, rgba(28,240,166,0.14), transparent 36%),
         #07090d;
     }
 
@@ -94,19 +101,18 @@
     }
 
     h1 {
-      font-size: 58px;
-      line-height: 1.06;
-      margin: 0 0 18px;
-      max-width: 980px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 68px;
+      line-height: 1.03;
+      margin: 0 auto 18px;
+      max-width: 1050px;
+      letter-spacing: -1.2px;
     }
 
     .subheadline {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
-      font-size: 21px;
-      color: #c8d2dc;
+      font-size: 22px;
+      color: #c7d1db;
     }
 
     .hero-buttons {
@@ -119,13 +125,13 @@
 
     .btn {
       display: inline-block;
-      padding: 14px 22px;
+      padding: 15px 24px;
       border-radius: 14px;
       font-weight: bold;
       border: none;
       cursor: pointer;
       transition: 0.2s ease;
-      font-size: 15px;
+      font-size: 16px;
     }
 
     .btn-primary {
@@ -133,7 +139,7 @@
       color: #03120d;
     }
 
-    .btn-primary:hover { opacity: 0.92; }
+    .btn-primary:hover { opacity: 0.94; }
 
     .btn-secondary {
       background: transparent;
@@ -145,14 +151,12 @@
       background: rgba(255,255,255,0.04);
     }
 
-    .trust-row {
+    .pill-row {
       margin-top: 30px;
       display: flex;
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
-      color: #9eabb8;
-      font-size: 14px;
     }
 
     .pill {
@@ -160,48 +164,84 @@
       border-radius: 999px;
       padding: 10px 14px;
       background: rgba(255,255,255,0.02);
+      color: #9eaab7;
+      font-size: 14px;
     }
 
     .section {
-      padding: 34px 0;
+      padding: 42px 0;
     }
 
     .section-title {
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 38px;
+      margin: 0 0 10px;
     }
 
     .section-text {
       color: #b7c0cb;
       margin-bottom: 24px;
-      max-width: 840px;
+      max-width: 850px;
       font-size: 18px;
     }
 
-    .card {
+    .shock-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .shock-card,
+    .tool-card,
+    .why-card {
       background: #151a20;
       border: 1px solid #252c35;
-      border-radius: 22px;
-      padding: 28px;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+
+    .shock-label {
+      color: #8bf4c8;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    .shock-number {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .shock-text {
+      color: #c7d0d9;
+      font-size: 16px;
+    }
+
+    .free-tool-card {
+      background: #151a20;
+      border: 1px solid #252c35;
+      border-radius: 24px;
+      padding: 30px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.22);
     }
 
-    .calculator-card {
-      max-width: 820px;
-      margin: 0 auto;
+    .free-tool-header {
+      text-align: center;
+      margin-bottom: 22px;
     }
 
-    .calculator-title {
-      text-align: center;
+    .free-tool-title {
       font-size: 34px;
-      margin-bottom: 10px;
       font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .calculator-sub {
-      text-align: center;
+    .free-tool-sub {
       color: #b7c0cb;
-      margin-bottom: 26px;
       font-size: 18px;
     }
 
@@ -230,162 +270,95 @@
       box-shadow: 0 0 0 3px rgba(28,240,166,0.1);
     }
 
-    input::placeholder { color: #98a2ad; }
-
     .result {
       margin-top: 18px;
       text-align: center;
-      font-size: 24px;
+      font-size: 22px;
       color: #20f0a8;
-      min-height: 96px;
+      min-height: 90px;
       font-weight: bold;
       line-height: 1.6;
     }
 
-    .micro-note {
-      text-align: center;
-      color: #8e98a4;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    .grid-3 {
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
-    .locked-card {
-      position: relative;
-      background: linear-gradient(180deg, #171b22 0%, #11151a 100%);
-      border: 1px solid #252c35;
-      border-radius: 18px;
-      padding: 20px;
-      min-height: 190px;
-      overflow: hidden;
+    .tool-card h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
     }
 
-    .locked-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 21px;
+    .tool-card p {
+      color: #c7d0d9;
+      font-size: 17px;
+      margin: 0 0 18px;
     }
 
-    .locked-card p {
-      margin: 0;
-      color: #b7c0cb;
-      font-size: 15px;
-    }
-
-    .label-badge {
+    .tool-tag {
       display: inline-block;
+      margin-bottom: 12px;
       font-size: 12px;
       font-weight: bold;
       color: #8bf4c8;
-      background: rgba(139, 244, 200, 0.08);
-      border: 1px solid rgba(139, 244, 200, 0.2);
+      background: rgba(139,244,200,0.08);
+      border: 1px solid rgba(139,244,200,0.2);
       padding: 6px 10px;
       border-radius: 999px;
-      margin-bottom: 12px;
     }
 
-    .blur-strip {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 42px;
-      background: linear-gradient(to top, rgba(7,9,13,0.98), rgba(7,9,13,0));
-    }
-
-    .signup {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .signup-left h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 34px;
-    }
-
-    .signup-left p {
-      color: #c6ced8;
-      margin-bottom: 18px;
-      font-size: 18px;
-    }
-
-    .benefits {
-      margin: 0;
-      padding-left: 20px;
-      color: #d7dee6;
-    }
-
-    .benefits li {
-      margin-bottom: 10px;
-    }
-
-    .signup-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .signup-box label {
-      font-size: 14px;
-      color: #b7c0cb;
-      margin-bottom: 8px;
-    }
-
-    .signup-box input {
-      width: 100%;
-      margin-bottom: 12px;
-    }
-
-    .fine-print {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #8d97a3;
-    }
-
-    .money-cards {
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 18px;
     }
 
-    .money-card {
-      background: #12171d;
-      border: 1px solid #252c35;
-      border-radius: 18px;
-      padding: 18px;
+    .why-card h4 {
+      margin: 0 0 10px;
+      font-size: 22px;
     }
 
-    .money-card h4 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .money-card p {
+    .why-card p {
       margin: 0;
-      color: #b7c0cb;
-      font-size: 15px;
+      color: #c7d0d9;
+      font-size: 16px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #111722, #0b0f14);
+      border: 1px solid #2b3642;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: 38px;
+    }
+
+    .cta-box p {
+      margin: 0 auto 22px;
+      color: #c7d0d9;
+      max-width: 780px;
+      font-size: 18px;
     }
 
     .footer {
-      padding: 44px 0 70px;
+      padding: 40px 0 60px;
       color: #8d97a3;
       text-align: center;
       font-size: 14px;
     }
 
-    @media (max-width: 980px) {
-      h1 { font-size: 44px; }
-      .grid-3,
-      .money-cards,
-      .signup {
+    @media (max-width: 1000px) {
+      h1 { font-size: 52px; }
+      .shock-grid,
+      .card-grid,
+      .why-grid {
         grid-template-columns: 1fr;
       }
       .nav-inner {
@@ -396,26 +369,27 @@
     }
 
     @media (max-width: 560px) {
-      h1 { font-size: 34px; }
+      h1 { font-size: 38px; }
       .subheadline { font-size: 18px; }
       .section-title { font-size: 30px; }
-      .calculator-title { font-size: 28px; }
+      .free-tool-title { font-size: 28px; }
       input { width: 100%; }
     }
   </style>
 </head>
 <body>
-
   <div class="nav">
     <div class="container nav-inner">
-      <div class="brand">Opportunity<span>Cost</span>Calculator</div>
+      <a href="index.html" class="brand">Opportunity<span>Cost</span>Calculator</a>
+
       <div class="nav-links">
         <a href="#free-tool">Free Tool</a>
-        <a href="#vault">Vault</a>
-        <a href="#crazy">Crazy Calculators</a>
-        <a href="#money">How It Works</a>
+        <a href="vault.html">Vault</a>
+        <a href="#explore">Calculators</a>
+        <a href="#why">Why People Use It</a>
       </div>
-      <a class="nav-cta" href="#unlock">Unlock Vault</a>
+
+      <a href="vault.html" class="nav-cta">Open Vault</a>
     </div>
   </div>
 
@@ -424,31 +398,60 @@
       <div class="eyebrow">Viral calculators for time, money, and bucket-list freedom</div>
       <h1>How much life are your habits costing you — and what could that become instead?</h1>
       <p class="subheadline">
-        Start with one free calculator. Then unlock the vault to explore time, money, travel, side hustles, and life decisions in a way that actually feels personal.
+        Turn routines, screen time, coffee runs, free time, and bucket-list dreams into numbers you can actually feel.
       </p>
 
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="#unlock">Unlock the Calculator Vault</a>
+        <a class="btn btn-primary" href="vault.html">Explore all calculators</a>
         <a class="btn btn-secondary" href="#free-tool">Try the free calculator</a>
       </div>
 
-      <div class="trust-row">
-        <div class="pill">Free viral calculators</div>
-        <div class="pill">Bucket-list planning tools</div>
-        <div class="pill">Side hustle → travel ideas</div>
-        <div class="pill">Built for reflection and action</div>
+      <div class="pill-row">
+        <div class="pill">Funny reality checks</div>
+        <div class="pill">Shareable result cards</div>
+        <div class="pill">Fast and brutally honest</div>
+        <div class="pill">Built to make you think</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">A few uncomfortable examples</h2>
+      <p class="section-text">
+        Most people never calculate the actual cost of their habits. That’s where this gets interesting.
+      </p>
+
+      <div class="shock-grid">
+        <div class="shock-card">
+          <div class="shock-label">Screen time</div>
+          <div class="shock-number">7.4 years</div>
+          <div class="shock-text">A heavy phone habit can quietly eat years of life.</div>
+        </div>
+
+        <div class="shock-card">
+          <div class="shock-label">Coffee habit</div>
+          <div class="shock-number">$46,800</div>
+          <div class="shock-text">Small daily spending gets weird when you zoom out.</div>
+        </div>
+
+        <div class="shock-card">
+          <div class="shock-label">Commute time</div>
+          <div class="shock-number">3.2 years</div>
+          <div class="shock-text">A lot of life disappears in “just getting there.”</div>
+        </div>
       </div>
     </section>
 
     <section class="section" id="free-tool">
-      <h2 class="section-title">Free Calculator</h2>
+      <h2 class="section-title">Start with one free reality check</h2>
       <p class="section-text">
-        Start with a quick coffee calculator and get an instant result you can copy, email, or save.
+        Try the coffee calculator first. It’s quick, slightly rude, and surprisingly effective.
       </p>
 
-      <div class="card calculator-card">
-        <div class="calculator-title">How much is your coffee really costing you?</div>
-        <div class="calculator-sub">Enter your average coffee price and how many you buy per week.</div>
+      <div class="free-tool-card">
+        <div class="free-tool-header">
+          <div class="free-tool-title">How much is your coffee really costing you?</div>
+          <div class="free-tool-sub">Enter your average coffee price and how many you buy per week.</div>
+        </div>
 
         <div class="calc-row">
           <input id="price" type="number" step="0.01" placeholder="Coffee price ($)" />
@@ -457,193 +460,93 @@
 
         <div class="calc-row">
           <button class="btn btn-primary" onclick="calcCoffee()">Calculate</button>
+          <a class="btn btn-secondary" href="vault.html">See more calculators</a>
         </div>
 
         <div class="result" id="result"></div>
-        <div class="micro-note">Your first shareable result card appears here after you calculate.</div>
       </div>
     </section>
 
-    <section class="section" id="vault">
-      <h2 class="section-title">Locked Calculator Vault</h2>
+    <section class="section" id="explore">
+      <h2 class="section-title">Explore the calculator vault</h2>
       <p class="section-text">
-        Unlock calculators that help you look at your life, time, spending, and future from a different angle.
+        These are the first working tools. Each one is designed to make you laugh, wince, and probably send the result to someone.
       </p>
 
-      <div class="grid-3">
-        <div class="locked-card">
-          <div class="label-badge">Unlock with email</div>
-          <h3>How many days of life do I have left?</h3>
-          <p>Estimate your days left, then see how many may actually be free after sleep and work.</p>
-          <div class="blur-strip"></div>
+      <div class="card-grid">
+        <div class="tool-card">
+          <div class="tool-tag">Live now</div>
+          <h3>Life Remaining</h3>
+          <p>Estimate your remaining days, years, and free time after sleep and work.</p>
+          <a class="btn btn-primary" href="life-left.html">Open calculator</a>
         </div>
 
-        <div class="locked-card">
-          <div class="label-badge">Unlock with email</div>
+        <div class="tool-card">
+          <div class="tool-tag">Live now</div>
           <h3>Screen Time Life Lost</h3>
-          <p>Find out how many months or years may be disappearing into your phone.</p>
-          <div class="blur-strip"></div>
+          <p>Find out how much of your life may be quietly disappearing into your phone.</p>
+          <a class="btn btn-primary" href="screen-time.html">Open calculator</a>
         </div>
 
-        <div class="locked-card">
-          <div class="label-badge">Unlock with email</div>
-          <h3>Can I Afford My Bucket List?</h3>
-          <p>Turn dream trips and experiences into a realistic yearly life plan.</p>
-          <div class="blur-strip"></div>
+        <div class="tool-card">
+          <div class="tool-tag">Live now</div>
+          <h3>Bucket List Planner</h3>
+          <p>Estimate how many adventures may still fit into the rest of your life.</p>
+          <a class="btn btn-primary" href="bucket-list.html">Open calculator</a>
         </div>
 
-        <div class="locked-card">
-          <div class="label-badge">Unlock with email</div>
-          <h3>Side Hustle → Travel</h3>
-          <p>See how a second income stream could help fund trips, adventures, and freedom.</p>
-          <div class="blur-strip"></div>
-        </div>
-
-        <div class="locked-card">
-          <div class="label-badge">Unlock with email</div>
-          <h3>Can I Afford This Pet?</h3>
-          <p>Estimate the real lifetime cost of a pet before you say yes.</p>
-          <div class="blur-strip"></div>
-        </div>
-
-        <div class="locked-card">
-          <div class="label-badge">Unlock with email</div>
-          <h3>Commute Life Drain</h3>
-          <p>Learn how much of your life may be disappearing into traffic and daily travel.</p>
-          <div class="blur-strip"></div>
+        <div class="tool-card">
+          <div class="tool-tag">See everything</div>
+          <h3>Calculator Vault</h3>
+          <p>Browse the current tool set and the next calculators coming to the site.</p>
+          <a class="btn btn-primary" href="vault.html">Open vault</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="crazy">
-      <h2 class="section-title">Ridiculous But Real Calculators</h2>
+    <section class="section" id="why">
+      <h2 class="section-title">Why people use these</h2>
       <p class="section-text">
-        These are the kinds of calculators people screenshot, send to friends, and argue about.
+        Because vague guilt is easy to ignore. Numbers are harder.
       </p>
 
-      <div class="grid-3">
-        <div class="locked-card">
-          <div class="label-badge">Most shared</div>
-          <h3>How Many Hours Until I Die?</h3>
-          <p>An intense but highly shareable version of the life-left concept.</p>
-          <div class="blur-strip"></div>
+      <div class="why-grid">
+        <div class="why-card">
+          <h4>See the real cost</h4>
+          <p>Turn tiny habits into lifetime numbers.</p>
         </div>
 
-        <div class="locked-card">
-          <div class="label-badge">Streaming reality</div>
-          <h3>Netflix Life Drain</h3>
-          <p>See how many days, months, or years of life may have gone into binge watching.</p>
-          <div class="blur-strip"></div>
+        <div class="why-card">
+          <h4>Get perspective</h4>
+          <p>Compare your routines against the life you say you want.</p>
         </div>
 
-        <div class="locked-card">
-          <div class="label-badge">Money leak</div>
-          <h3>Phone Upgrade Madness</h3>
-          <p>How much you have spent replacing phones — and what that money could have become.</p>
-          <div class="blur-strip"></div>
+        <div class="why-card">
+          <h4>Share the result</h4>
+          <p>Most outputs are funny enough to send and painful enough to remember.</p>
         </div>
 
-        <div class="locked-card">
-          <div class="label-badge">Knowledge gap</div>
-          <h3>How Many Books Could I Have Read?</h3>
-          <p>Turn screen time into lost books, lost learning, and lost personal growth.</p>
-          <div class="blur-strip"></div>
-        </div>
-
-        <div class="locked-card">
-          <div class="label-badge">Career check</div>
-          <h3>Should I Quit My Job?</h3>
-          <p>Blend salary, commute, stress, and time to reveal the real cost of staying.</p>
-          <div class="blur-strip"></div>
-        </div>
-
-        <div class="locked-card">
-          <div class="label-badge">Life audit</div>
-          <h3>How Much of My Life Will I Spend Working?</h3>
-          <p>A brutal but compelling calculator for modern life.</p>
-          <div class="blur-strip"></div>
-        </div>
-
-        <div class="locked-card">
-          <div class="label-badge">Freedom check</div>
-          <h3>Can I Afford to Be Spontaneous?</h3>
-          <p>Estimate whether your current finances can support last-minute fun and travel.</p>
-          <div class="blur-strip"></div>
-        </div>
-
-        <div class="locked-card">
-          <div class="label-badge">Funny but useful</div>
-          <h3>Cost Per Cuddle</h3>
-          <p>A playful pet calculator that breaks lifetime pet cost into emotional terms.</p>
-          <div class="blur-strip"></div>
-        </div>
-
-        <div class="locked-card">
-          <div class="label-badge">Bucket-list lens</div>
-          <h3>How Much Adventure Is Left?</h3>
-          <p>Estimate how many major experiences may still fit into the rest of your life.</p>
-          <div class="blur-strip"></div>
+        <div class="why-card">
+          <h4>Make better choices</h4>
+          <p>Use the calculators as a wake-up call, planning tool, or gentle existential crisis.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="unlock">
-      <div class="card signup">
-        <div class="signup-left">
-          <h3>Unlock the full calculator vault</h3>
-          <p>
-            Join the email list to get access to deeper calculators and future bucket-list, side-hustle, and life-planning tools.
-          </p>
-          <ul class="benefits">
-            <li>Access to all current calculators</li>
-            <li>New releases sent straight to your inbox</li>
-            <li>Future side hustle and bucket-list tools</li>
-            <li>A growing system that connects time, money, and freedom</li>
-          </ul>
-        </div>
-
-        <div class="signup-box">
-          <label for="email">Email address</label>
-          <input id="email" type="email" placeholder="Enter your email" />
-          <button class="btn btn-primary" onclick="unlockVault()">Unlock now</button>
-          <div class="fine-print">
-            Next step: connect this form to your real email list provider so addresses are saved automatically.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="money">
-      <h2 class="section-title">How this can make money</h2>
-      <p class="section-text">
-        Start with traffic and signups. Add revenue only after people are using and sharing the tools.
-      </p>
-
-      <div class="money-cards">
-        <div class="money-card">
-          <h4>Ads</h4>
-          <p>As traffic grows, display ads can turn page views into basic passive income.</p>
-        </div>
-
-        <div class="money-card">
-          <h4>Email list</h4>
-          <p>Your email list becomes the main asset for future tools, products, and offers.</p>
-        </div>
-
-        <div class="money-card">
-          <h4>Affiliate links</h4>
-          <p>Travel, budgeting, booking, insurance, and planning links can fit naturally later.</p>
-        </div>
-
-        <div class="money-card">
-          <h4>Premium planners</h4>
-          <p>You can later sell bucket-list planners, side hustle templates, or adventure roadmaps.</p>
-        </div>
+    <section class="section">
+      <div class="cta-box">
+        <h2>Ready for the good stuff?</h2>
+        <p>
+          Open the vault and explore the calculators that turn your habits, time, and ambitions into something a little more honest.
+        </p>
+        <a class="btn btn-primary" href="vault.html">Open the Calculator Vault</a>
       </div>
     </section>
 
     <div class="footer">
-      Opportunity Cost Calculator • one viral tool at a time
+      Opportunity Cost Calculator<br><br>
+      <a href="terms.html">Terms of Service</a> •
+      <a href="disclaimer.html">Disclaimer</a>
     </div>
   </div>
 
@@ -660,127 +563,12 @@
 
       const yearly = price * cups * 52;
       const thirty = yearly * 30;
-      const invested = yearly * 30 * 1.8;
 
-      result.innerHTML = `
-        <div style="margin-bottom:18px;">
-          You spend <b>$${yearly.toFixed(0)}</b> per year on coffee.<br>
-          Over 30 years that becomes <b>$${thirty.toFixed(0)}</b>.<br>
-          A simple future-value view puts that closer to <b>$${invested.toFixed(0)}</b>.
-        </div>
-
-        <div id="coffee-card" style="
-          max-width:700px;
-          margin:20px auto 0;
-          background:linear-gradient(135deg,#111722,#0b0f14);
-          border:1px solid #2b3642;
-          border-radius:18px;
-          padding:24px;
-          text-align:left;
-          color:white;
-          box-shadow:0 12px 30px rgba(0,0,0,0.28);
-        ">
-          <div style="
-            display:inline-block;
-            font-size:12px;
-            font-weight:bold;
-            color:#8bf4c8;
-            background:rgba(139,244,200,0.08);
-            border:1px solid rgba(139,244,200,0.2);
-            padding:6px 10px;
-            border-radius:999px;
-            margin-bottom:14px;
-          ">Coffee Reality Check</div>
-
-          <div style="font-size:32px; line-height:1.15; font-weight:800; margin-bottom:14px;">
-            My coffee habit costs me<br>$${thirty.toFixed(0)} over 30 years.
-          </div>
-
-          <div style="font-size:18px; color:#c8d2dc; margin-bottom:10px;">
-            Yearly spend: <b style="color:#1cf0a6;">$${yearly.toFixed(0)}</b>
-          </div>
-
-          <div style="font-size:18px; color:#c8d2dc;">
-            Future-value angle: <b style="color:#1cf0a6;">$${invested.toFixed(0)}</b>
-          </div>
-
-          <div style="margin-top:18px; font-size:14px; color:#8f9aa6;">
-            OpportunityCostCalculator
-          </div>
-        </div>
-
-        <div style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <button class="btn btn-secondary" onclick="copyCoffeeCard(${yearly.toFixed(0)}, ${thirty.toFixed(0)}, ${invested.toFixed(0)})">Copy Text</button>
-          <button class="btn btn-secondary" onclick="downloadCoffeeCard()">Print / Save</button>
-          <button class="btn btn-primary" onclick="emailCoffeeCard(${yearly.toFixed(0)}, ${thirty.toFixed(0)}, ${invested.toFixed(0)})">Email My Result</button>
-        </div>
-      `;
-    }
-
-    function copyCoffeeCard(yearly, thirty, invested) {
-      const text = `My coffee habit costs me $${thirty} over 30 years. I spend $${yearly} per year on coffee, and the future-value angle is about $${invested}.`;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Coffee result copied.");
-      });
-    }
-
-    function emailCoffeeCard(yearly, thirty, invested) {
-      const subject = encodeURIComponent("My Coffee Opportunity Cost Result");
-      const body = encodeURIComponent(
-        `My coffee habit costs me $${thirty} over 30 years.\n\n` +
-        `Yearly spend: $${yearly}\n` +
-        `Future-value angle: $${invested}\n\n` +
-        `Generated with OpportunityCostCalculator.`
-      );
-      window.location.href = `mailto:?subject=${subject}&body=${body}`;
-    }
-
-    function downloadCoffeeCard() {
-      const card = document.getElementById("coffee-card");
-      if (!card) {
-        alert("Calculate first to generate your card.");
-        return;
-      }
-
-      const text = card.innerText;
-      const win = window.open("", "_blank");
-      win.document.write(`
-        <html>
-        <head><title>Coffee Card</title></head>
-        <body style="margin:0; background:#07090d; display:flex; align-items:center; justify-content:center; min-height:100vh; font-family:Arial,sans-serif;">
-          <div style="
-            width:800px;
-            background:linear-gradient(135deg,#111722,#0b0f14);
-            border:1px solid #2b3642;
-            border-radius:18px;
-            padding:32px;
-            color:white;
-            box-sizing:border-box;
-          ">
-            <pre style="white-space:pre-wrap; font-family:Arial,sans-serif; font-size:22px; line-height:1.5; margin:0;">${text}</pre>
-          </div>
-        </body>
-        </html>
-      `);
-      win.document.close();
-      win.print();
-    }
-
-    function unlockVault() {
-      const email = document.getElementById("email").value.trim();
-
-      if (!email || !email.includes("@") || !email.includes(".")) {
-        alert("Please enter a valid email address.");
-        return;
-      }
-
-      window.location.href = "vault.html";
+      result.innerHTML =
+        "You spend <b>$" + yearly.toFixed(0) + "</b> per year on coffee.<br>" +
+        "Over 30 years that becomes <b>$" + thirty.toFixed(0) + "</b>.<br>" +
+        "You are basically one latte away from a tiny financial identity crisis.";
     }
   </script>
 </body>
 </html>
-<div class="footer">
-  Opportunity Cost Calculator<br><br>
-  <a href="terms.html">Terms of Service</a> •
-  <a href="disclaimer.html">Disclaimer</a>
-</div>
