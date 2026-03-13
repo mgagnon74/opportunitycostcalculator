@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Opportunity Cost Calculator</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#111;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+input{
+padding:10px;
+margin:10px;
+width:150px;
+}
+
+button{
+padding:10px 20px;
+background:#00ff9d;
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
+
+.result{
+font-size:24px;
+margin-top:20px;
+color:#00ff9d;
+}
+
+.card{
+background:#222;
+padding:30px;
+border-radius:10px;
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Opportunity Cost Calculator</h1>
+
+<p>How much is your daily coffee really costing you?</p>
+
+<div class="card">
+
+<input id="price" placeholder="Coffee price ($)">
+<input id="cups" placeholder="Cups per week">
+<br>
+<button onclick="calc()">Calculate</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function calc(){
+
+let price=document.getElementById("price").value;
+let cups=document.getElementById("cups").value;
+
+let yearly=price*cups*52;
+let thirty=yearly*30;
+
+document.getElementById("result").innerHTML=
+
+"You spend <b>$"+yearly.toFixed(0)+"</b> per year on coffee.<br><br>" +
+
+"Over 30 years that becomes <b>$"+thirty.toFixed(0)+"</b>";
+
+}
+
+</script>
+
+</body>
+</html>
