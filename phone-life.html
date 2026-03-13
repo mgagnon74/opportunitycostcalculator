@@ -1,0 +1,42 @@
+<h2>Your Phone Is Stealing Your Life</h2>
+
+<label>Daily screen time (hours)</label>
+<input id="screenHours" type="number" step="0.1">
+
+<label>Your age</label>
+<input id="age" type="number">
+
+<label>Life expectancy</label>
+<input id="lifeExpectancy" type="number" value="80">
+
+<button onclick="calculatePhone()">Calculate</button>
+
+<div id="result"></div>
+<button onclick="sharePhone()">Download Share Card</button>
+
+<script>
+
+let phoneYears = 0;
+
+function calculatePhone() {
+
+let hours = parseFloat(document.getElementById("screenHours").value);
+let age = parseFloat(document.getElementById("age").value);
+let life = parseFloat(document.getElementById("lifeExpectancy").value);
+
+let remainingYears = life - age;
+
+let lifetimeHours = hours * 365 * remainingYears;
+
+phoneYears = lifetimeHours / 24 / 365;
+
+document.getElementById("result").innerHTML =
+"You will spend <b>" + phoneYears.toFixed(1) + " YEARS</b> of your life on your phone.<br><br>Congratulations. Your phone owns you.";
+
+}
+
+function sharePhone(){
+generateShareCard("My phone will steal", phoneYears.toFixed(1) + " years of my life");
+}
+
+</script>
