@@ -1,0 +1,39 @@
+<h2>Your Commute Is Eating Your Life</h2>
+
+<label>Daily commute minutes</label>
+<input id="commute" type="number">
+
+<label>Working years</label>
+<input id="workYears" type="number" value="40">
+
+<button onclick="calculateCommute()">Calculate</button>
+
+<div id="commuteResult"></div>
+<button onclick="shareCommute()">Download Share Card</button>
+
+<script>
+
+let commuteYears = 0;
+
+function calculateCommute(){
+
+let minutes = parseFloat(document.getElementById("commute").value);
+let years = parseFloat(document.getElementById("workYears").value);
+
+let totalMinutes = minutes * 5 * 52 * years;
+
+let hours = totalMinutes / 60;
+
+commuteYears = hours / 24 / 365;
+
+document.getElementById("commuteResult").innerHTML =
+"You will spend <b>" + commuteYears.toFixed(1) +
+" YEARS</b> commuting.<br><br>That’s a lot of podcasts.";
+
+}
+
+function shareCommute(){
+generateShareCard("My commute costs", commuteYears.toFixed(1)+" years of life");
+}
+
+</script>
