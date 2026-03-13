@@ -63,7 +63,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
@@ -72,18 +72,19 @@
       border: 1px solid #252c35;
       border-radius: 18px;
       padding: 22px;
-      min-height: 180px;
+      min-height: 200px;
     }
 
     .card h3 {
       margin-top: 0;
       margin-bottom: 10px;
-      font-size: 22px;
+      font-size: 24px;
     }
 
     .card p {
       color: #c7d0d9;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      font-size: 17px;
     }
 
     .btn {
@@ -95,8 +96,11 @@
       color: #03120d;
     }
 
-    .coming-soon {
-      opacity: 0.72;
+    .footer {
+      padding: 40px 0 60px;
+      color: #8d97a3;
+      text-align: center;
+      font-size: 14px;
     }
 
     @media (max-width: 900px) {
@@ -108,78 +112,47 @@
 <body>
   <div class="container">
     <section class="hero">
-      <h1>Welcome to the Calculator Vault</h1>
+      <h1>Calculator Vault</h1>
       <p class="sub">
-        These are your deeper calculators. Build them one by one and let the homepage tease them.
+        Start with the first four calculators. Once these are working, we can add email capture, terms, disclaimer pages, and the next tools.
       </p>
       <a class="top-link" href="index.html">← Back to homepage</a>
     </section>
 
     <section>
-      <h2 class="section-title">Build Next</h2>
-      <p class="section-text">These are the best next pages to create.</p>
+      <h2 class="section-title">Available Calculators</h2>
+      <p class="section-text">Build and test these first.</p>
 
       <div class="grid">
         <div class="card">
+          <h3>Coffee Opportunity Cost</h3>
+          <p>See how much a small recurring habit can cost over time.</p>
+          <a class="btn" href="index.html#free-tool">Open</a>
+        </div>
+
+        <div class="card">
           <h3>Life Remaining</h3>
-          <p>Estimate your remaining days and free years.</p>
+          <p>Estimate your remaining days, years, and free time after sleep and work.</p>
           <a class="btn" href="life-left.html">Open</a>
         </div>
 
         <div class="card">
           <h3>Screen Time Life Lost</h3>
-          <p>See how much time may be disappearing into your phone.</p>
+          <p>Calculate how much of your life may be disappearing into your phone.</p>
           <a class="btn" href="screen-time.html">Open</a>
         </div>
 
         <div class="card">
           <h3>Bucket List Planner</h3>
-          <p>Estimate how many major adventures may still fit into your life.</p>
+          <p>Estimate how many adventures or major experiences may still fit into your life.</p>
           <a class="btn" href="bucket-list.html">Open</a>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2 class="section-title">Strong Additions After That</h2>
-      <p class="section-text">These are powerful follow-ups once the first three are live.</p>
-
-      <div class="grid">
-        <div class="card coming-soon">
-          <h3>Side Hustle → Travel</h3>
-          <p>How a side income could turn into yearly trips and freedom.</p>
-        </div>
-
-        <div class="card coming-soon">
-          <h3>Can I Afford My Bucket List?</h3>
-          <p>Turn dream experiences into a practical annual plan.</p>
-        </div>
-
-        <div class="card coming-soon">
-          <h3>Can I Afford This Pet?</h3>
-          <p>Estimate food, vet, insurance, and total lifetime pet cost.</p>
-        </div>
-
-        <div class="card coming-soon">
-          <h3>Should I Quit My Job?</h3>
-          <p>Mix money, commute, and stress to reveal the real cost of staying.</p>
-        </div>
-
-        <div class="card coming-soon">
-          <h3>How Much Adventure Is Left?</h3>
-          <p>A higher-emotion planner built around time and experiences.</p>
-        </div>
-
-        <div class="card coming-soon">
-          <h3>How Many Books Could I Have Read?</h3>
-          <p>A great traffic tool built from screen-time regret.</p>
-        </div>
-      </div>
-    </section>
+    <div class="footer">
+      Opportunity Cost Calculator
+    </div>
   </div>
 </body>
 </html>
-<div class="footer">
-  Opportunity Cost Calculator • one viral tool at a time<br><br>
-  <a href="terms.html">Terms of Service</a> • <a href="disclaimer.html">Disclaimer</a>
-</div>
